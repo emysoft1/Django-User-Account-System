@@ -1,0 +1,24 @@
+
+{% if messages %}
+  {% for message in messages %}
+    <div id="success-message" class="alert alert-success" role="alert">
+      {{ message }}
+    </div>
+  {% endfor %}
+{% endif %}
+
+<script>
+  // Function to remove the success message after a certain duration
+  function removeSuccessMessage() {
+    var successMessage = document.getElementById("success-message");
+    if (successMessage) {
+      successMessage.style.display = "none";
+    }
+  }
+
+  // Set the duration (in milliseconds) after which the success message should disappear
+  var duration = 5000; // 5 seconds
+
+  // Call the function to remove the success message after the specified duration
+  setTimeout(removeSuccessMessage, duration);
+</script>

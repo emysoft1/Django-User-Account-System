@@ -1,0 +1,37 @@
+{% extends "contact_app/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Contact{% endblock title %}
+
+{% block content %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card mt-5">
+        <div class="card-body">
+          <h2 class="card-title text-center">Contact Us</h2>
+          {% include 'includes/sucess_message.html' %}
+          {% include 'includes/form_errors.html' %}
+          <form method="post">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                {{form.department}}
+            </div>
+
+            <div class="mb-3">
+               {{form.subject}} 
+            </div>
+
+
+            <div class="mb-3">
+                {{form.message}}
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

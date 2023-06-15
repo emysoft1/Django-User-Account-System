@@ -1,0 +1,41 @@
+{% extends "account/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Profile{% endblock title %}
+
+{% block content %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card mt-5">
+        <div class="card-body">
+          <h2 class="card-title text-center">{{user.first_name}} ---- Profile</h2>
+ {% include 'includes/sucess_message.html' %}
+          <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="mb-3">
+                {{ form.date_of_birth.label_tag }}
+                {{ form.date_of_birth}}
+              </div>
+
+              <div class="mb-3">
+                {{ form.profile_picture.label_tag }}
+                {{ form.profile_picture }}
+              </div>
+
+
+              <div class="mb-3">
+                {{ form.bio.label_tag }}
+                {{ form.bio }}
+              </div>
+
+              
+
+            <button type="submit" class="btn btn-primary">Save</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
